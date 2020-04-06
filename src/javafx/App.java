@@ -1,6 +1,10 @@
 package javafx;
 
 import javafx.application.Application;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -14,6 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        /*
         stage.setTitle("Cabomaldade Application");
         stage.show();
 
@@ -49,7 +54,32 @@ public class App extends Application {
         terceiraJanela.isFullScreen();
 
         terceiraJanela.show();
+        */
 
+        // Scenes
+        Stage janelaScene = new Stage();
+        janelaScene.setWidth(400);
+        janelaScene.setHeight(400);
+        janelaScene.setTitle("Usando Scenes");
+
+        // parent node - vertical layout
+        VBox parent = new VBox(); // LayoutManager - controle a disposição
+
+        // child node
+        Label label1 = new Label("Teste Primeiro Label");
+        Label label2 = new Label("Teste Segundo Label");
+
+        //parent.getChildren().add(label1);
+        parent.getChildren().addAll(label1,label2);
+
+        Scene primeiraCena = new Scene(parent);
+
+        janelaScene.setScene(primeiraCena);
+
+        primeiraCena.setCursor(Cursor.CLOSED_HAND);
+
+        janelaScene.show();
+        // Labels e Imagens
 
     }
 
