@@ -4,10 +4,15 @@ import javafx.application.Application;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import javax.xml.transform.stream.StreamSource;
 
 public class App extends Application {
 
@@ -65,18 +70,29 @@ public class App extends Application {
         // parent node - vertical layout
         VBox parent = new VBox(); // LayoutManager - controle a disposição
 
-        // child node
+        // child node - Controllers
         Label label1 = new Label("Teste Primeiro Label");
         Label label2 = new Label("Teste Segundo Label");
-
-        //parent.getChildren().add(label1);
-        parent.getChildren().addAll(label1,label2);
 
         Scene primeiraCena = new Scene(parent);
 
         janelaScene.setScene(primeiraCena);
 
         primeiraCena.setCursor(Cursor.CLOSED_HAND);
+
+        String url = "https://cdn3.iconfinder.com/data/icons/" +
+                "currency-2/460/Brazil-Real-512.png";
+        ImageView imagemTeste = new ImageView(url);
+        imagemTeste.setFitHeight(100);
+        imagemTeste.setFitWidth(100);
+
+        Label imagemLabel = new Label("Teste Label Imagem", imagemTeste);
+        imagemLabel.setFont(new Font("Coimbra",20));
+        imagemLabel.setTextFill(Color.web("#03fc2c"));
+
+        //parent.getChildren().add(label1);
+        parent.getChildren().addAll(label1,label2,imagemLabel);
+
 
         janelaScene.show();
         // Labels e Imagens
